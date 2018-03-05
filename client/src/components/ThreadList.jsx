@@ -1,11 +1,11 @@
 import React from 'react';
-import Thread from './Thread.jsx';
+import Thread from './Thread.jsx'
 
-const ThreadList = (props, handleClickComment)=>
+const ThreadList = (props)=>
 (
 
   <div>
-  {props.thread.map((thread)=> <Thread thread={thread}   />)}
+  {props.thread.map((thread)=> <Thread thread={thread}   key={thread.id} />)}
 
   </div>
 );
