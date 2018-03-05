@@ -8,6 +8,7 @@ class Thread extends React.Component{
 
 
   render(){
+
     return <div>
        {this.props.thread.comment}>
            {console.log(this.handleThread)}
@@ -19,4 +20,5 @@ class Thread extends React.Component{
 
 }
 }
+
 export default Thread;
