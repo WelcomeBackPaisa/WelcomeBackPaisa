@@ -1,3 +1,9 @@
+<<<<<<< 620fd9883c5399e7929712512dba1c53998074bc
+=======
+const db = require('../database/index.js');
+const url = require('url');
+
+>>>>>>> rearrange files on server
 
 app.get('/reply', function(req,res){
   data.getReply((err,results)=>{
@@ -9,6 +15,11 @@ app.get('/reply', function(req,res){
     }
   })
 })
+<<<<<<< 620fd9883c5399e7929712512dba1c53998074bc
+=======
+
+//Query dB to input a thread
+>>>>>>> rearrange files on server
 app.post('/reply'),function(req,res){
   let reply=req.body.reply
   if(!reply){
