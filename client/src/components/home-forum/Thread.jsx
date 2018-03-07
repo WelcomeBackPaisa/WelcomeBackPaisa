@@ -5,17 +5,17 @@ class Thread extends React.Component{
     super(props);
     }
 
-
   render(){
-
     return(
     <div>
-       {this.props.threads}>
-           {console.log(this.handleThread)}
-           <button >Reply</button>
+      <div>
+        <div>{`${this.props.thread.title}`}</div><br />
+          <div>{`${this.props.thread.body}`}</div><br />
+        <button>Reply</button>
+      </div>
     </div>
-)
+    )
+  }
+}
 
-}
-}
 export default Thread;

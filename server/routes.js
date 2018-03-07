@@ -1,3 +1,5 @@
+const db = require('../database/index.js');
+const url = require('url');
 
 app.get('/reply', function(req,res){
   data.getReply((err,results)=>{
@@ -9,6 +11,7 @@ app.get('/reply', function(req,res){
     }
   })
 })
+
 app.post('/reply'),function(req,res){
   let reply=req.body.reply
   if(!reply){
