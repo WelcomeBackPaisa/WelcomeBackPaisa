@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ReplyThread extends React.Component{
+class ReplyThread extends React.Component {
   constructor(props){
     super(props);
   }
@@ -10,7 +10,7 @@ class ReplyThread extends React.Component{
       <div>
        {this.props.Replythread.reply}
       </div>
-    }
+    )}
 }
 
 export default ReplyThread;

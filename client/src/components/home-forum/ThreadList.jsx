@@ -2,12 +2,10 @@ import React from 'react';
 import Thread from './Thread.jsx';
 
 
-const ThreadList = thread.map((thread) =>
-
+const ThreadList = (props) => (
   <div>
-    <Thread
-      key={thread.id}
-      id={thread.id} />
+    {console.log(props)}
+    {props.threads.map(thread => <Thread thread={thread} key={thread.id} /> )}
   </div>
 );
 export default ThreadList;

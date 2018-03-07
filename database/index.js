@@ -1,13 +1,7 @@
-var express = require('express');
-var mysql = require('./config.js');
+const mysql = require('mysql');
+const mysqlConfig = require('./config.js');
 
-
-
-con.connect(function(err) {
-  if (err) throw err
-  console.log('You are now connected...')
-})
-
+const con = mysql.createConnection(mysqlConfig);
 
   //user
   var newUserName = function(cb){
