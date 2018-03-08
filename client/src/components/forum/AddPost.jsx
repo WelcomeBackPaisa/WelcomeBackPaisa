@@ -1,3 +1,8 @@
+/*AddPost will be a stateless presentational component
+  AddPost will be clickable and should redirect to Create New Post page
+  But for right now, it should only be a button icon
+*/
+
 import React from 'react';
 
 class AddThread extends React.Component{
@@ -32,12 +37,12 @@ class AddThread extends React.Component{
  render() {
     return (
       <div>
-      <div class="nav">
-      <a  type= "button"class="w3-bar-item w3-button btn-lg">Home</a>
-      <a  type= "button" class="w3-bar-item w3-button btn-lg">about us</a>
+      <div className="nav">
+      // <a  type= "button"className="w3-bar-item w3-button btn-lg">Home</a>
+      // <a  type= "button" className="w3-bar-item w3-button btn-lg">about us</a>
        </div>
         <div className="header">
-          <h1>WELCOME BACK</h1>
+          <center><h1>WELCOME BACK PAISA</h1></center>
           <div className="startT">
           <h2>START A THREAD</h2>
           </div>
@@ -46,7 +51,7 @@ class AddThread extends React.Component{
         Type Something!
 </textarea>
        <div>
-        <button type="button" class="btn-danger btn-md" onClick={this.add}>Add Thread</button>
+        <button type="button" className="btn-danger btn-md" onClick={this.add}>Add Thread</button>
        </div>
       </div>
     );
