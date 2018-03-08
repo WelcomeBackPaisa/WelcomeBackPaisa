@@ -4,10 +4,9 @@ CREATE DATABASE paisa;
 
 USE paisa;
 
-CREATE TABLE user(
-  ID int NOT NULL AUTO_INCREMENT,
-  userName varchar(55),
-  PRIMARY KEY(ID)
+CREATE TABLE user (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  userName varchar(55)
 );
 
 
@@ -19,53 +18,35 @@ INSERT INTO user(userName) VALUES('vatoLoco1');
 INSERT INTO user(userName) VALUES('cleverUser2');
 
 
-CREATE TABLE topics (
+CREATE TABLE posts (
   id INT NOT NULL AUTO_INCREMENT,
-  topic_subject varchar(255),
-  topic_by INT,
-  FOREIGN KEY (topic_id)
+  post_id INT NOT NULL,
+  post_subject text,
+  PRIMARY KEY(id),
+  FOREIGN KEY(post_id) REFERENCES user(id)
 );
 
 
-INSERT INTO topics(topic_subject) VALUES('');
-INSERT INTO topics(topic_subject) VALUES('');
-INSERT INTO topics(topic_subject) VALUES('');
-INSERT INTO topics(topic_subject) VALUES('');
-INSERT INTO topics(topic_subject) VALUES('');
-INSERT INTO topics(topic_subject) VALUES('');
+INSERT INTO posts(post_id, post_subject) VALUES(1, '');
+INSERT INTO posts(post_id, post_subject) VALUES(2, '');
+INSERT INTO posts(post_id, post_subject) VALUES(3, '');
+INSERT INTO posts(post_id, post_subject) VALUES(4, '');
+INSERT INTO posts(post_id, post_subject) VALUES(5, '');
+INSERT INTO posts(post_id, post_subject) VALUES(6, '');
 
 
 CREATE TABLE reply(
   id INT NOT NULL AUTO_INCREMENT,
+  reply_id INT NOT NULL,
   reply_text text,
-  PRIMARY KEY(replyID),
-  topic_id INT AUTO_INCREMENT,
-  FOREIGN KEY(topic_id) REFERENCES topics(topic_id),
-  topic_id INT
+  PRIMARY KEY(id),
+  FOREIGN KEY(reply_id) REFERENCES posts(id)
 );
 
 
-INSERT INTO reply(reply_text) VALUES('');
-INSERT INTO reply(reply_text) VALUES('');
-INSERT INTO reply(reply_text) VALUES('');
-INSERT INTO reply(reply_text) VALUES('');
-INSERT INTO reply(reply_text) VALUES('');
-INSERT INTO reply(reply_text) VALUES('');
-
-
-CREATE TABLE rating(
-  id int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY(ratingID),
-  replyID int,
-  FOREIGN KEY(replyID) REFERENCES reply(replyID),
-  topic_id int,
-  FOREIGN KEY(topic_id) REFERENCES comments(topic_id)
-);
-
-
-INSERT INTO rating(replyID, topic_id) VALUES(1,1);
-INSERT INTO rating(replyID, topic_id) VALUES(2,2);
-INSERT INTO rating(replyID, topic_id) VALUES(3,3);
-INSERT INTO rating(replyID, topic_id) VALUES(6,6);
-INSERT INTO rating(replyID, topic_id) VALUES(5,5);
-INSERT INTO rating(replyID, topic_id) VALUES(4,4);
+INSERT INTO reply(reply_id, reply_text) VALUES(1, '');
+INSERT INTO reply(reply_id, reply_text) VALUES(2, '');
+INSERT INTO reply(reply_id, reply_text) VALUES(3, '');
+INSERT INTO reply(reply_id, reply_text) VALUES(4, '');
+INSERT INTO reply(reply_id, reply_text) VALUES(5, '');
+INSERT INTO reply(reply_id, reply_text) VALUES(6, '');
