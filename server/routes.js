@@ -8,8 +8,7 @@ exports.getThread = (req, res) => {
       res.status(200).send(data)
     })
     .catch(err => { console.log(err) })
-}
-
+};
 
 //Query db for replies on already existing threads
 exports.getResponse = (req, res) => {
@@ -18,9 +17,7 @@ exports.getResponse = (req, res) => {
     res.status(200).send(data)
   })
   .catch(err => { console.log(err) })
-}
-
-
+};
 
 //Query for posting new threads
 exports.postText = (req, res) => {
@@ -29,7 +26,7 @@ exports.postText = (req, res) => {
     res.status(200).send(data)
   })
   .catch(err => { console.log(err) })
-}
+};
 
 //Query for posting new replies
 exports.postResponse = (req, res) => {
@@ -38,4 +35,4 @@ exports.postResponse = (req, res) => {
     res.status(200).send(data)
   })
   .catch(err => { console.log(err) })
-}
+};
