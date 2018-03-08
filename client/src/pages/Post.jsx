@@ -9,13 +9,14 @@
 
 import React from 'react';
 
-import HeaderBar from "../components/home-forum/HeaderBar.jsx";
+import HeaderBar from "../components/app/HeaderBar.jsx";
 
 export default class WholeThread extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-}
+    }
+  }
 
   render() {
     return (
@@ -23,6 +24,6 @@ export default class WholeThread extends React.Component {
         <HeaderBar />
 
       </div>
-    )
-  }
+      )
+    }
 }

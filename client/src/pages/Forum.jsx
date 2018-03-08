@@ -15,10 +15,12 @@ export default class Forum extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      threads: [
-        {title: 'help I need somebody',
-          body: 'really need somebody'},
-        {title: 'CDMX is great',
+      posts: [
+        {id: 54,
+         title: 'help I need somebody',
+         body: 'really need somebody'},
+        {id: 55,
+         title: 'CDMX is great',
          body: 'Best city ever'}
       ]
     };
@@ -27,7 +29,7 @@ export default class Forum extends React.Component {
   render() {
     return (
       <div>
-        <Posts threads={this.state.threads} />
+        <Posts posts={this.state.posts} />
       </div>
     );
   }
