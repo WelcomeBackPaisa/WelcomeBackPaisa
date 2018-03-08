@@ -2,18 +2,21 @@
   App will render:
     HeaderBar & Menu, which will be shared across all pages
   Routes rendered inside App will be:
-    Forum ("/")
+    Forum ("/forum")
     Post ("/post/:id")
     About Me ("/about")
 */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
+import '../dist/scss/main.scss';
 import {BrowserRouter, Route} from 'react-router-dom';
 import {MuiThemeProvider} from 'material-ui/styles';
 
 //SubComponents that will be rendered
+import HeaderBar from "./components/app/HeaderBar.jsx";
 import Forum from './pages/Forum.jsx';
 import Post from './pages/Post.jsx';
 import AboutMe from './pages/AboutMe.jsx';
@@ -80,6 +83,7 @@ class App extends React.Component{
       <div>
         <BrowserRouter>
           <MuiThemeProvider>
+            <HeaderBar />
             <Forum />
             <Post posts={this.state.posts} currentPost={this.state.currentPost} handlePost={this.handlePost} />
           </MuiThemeProvider>
