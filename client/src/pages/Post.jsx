@@ -11,7 +11,7 @@ import React from 'react';
 
 import HeaderBar from "../components/app/HeaderBar.jsx";
 
-export default class WholeThread extends React.Component {
+export default class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +22,6 @@ export default class WholeThread extends React.Component {
     return (
       <div>
         <HeaderBar />
-
       </div>
       )
     }
