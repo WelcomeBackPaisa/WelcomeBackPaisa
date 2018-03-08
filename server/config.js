@@ -8,4 +8,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../client/dist'));
 
+//GET request routes
+app.get("/forum", route.getThread)
+
+app.get("/post/:id", route.getResponse)
+
 module.exports = app;

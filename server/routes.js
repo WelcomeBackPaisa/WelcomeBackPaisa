@@ -23,7 +23,7 @@ exports.getResponse = (req, res) => {
 
 
 //Query for posting new threads
-exports.postText = (req, res) => {
+exports.postThread = (req, res) => {
   db.postTopic()
   .then(data => {
     res.status(200).send(data)
