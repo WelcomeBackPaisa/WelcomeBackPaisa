@@ -12,7 +12,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
 import '../dist/scss/main.scss';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {MuiThemeProvider} from 'material-ui/styles';
 
 //SubComponents that will be rendered
@@ -23,74 +23,18 @@ import AboutMe from './pages/AboutMe.jsx';
 
 //All GET/POST logic will be moved to the corresponding page
 //TODO Add Router Route
-class App extends React.Component{
-  constructor(props){
-    super(props);
-    this.state={
-      posts: [
-        { id: 54,
-          title: 'help I need somebody',
-          body: 'really need somebody'},
-        { id: 55,
-          title: 'CDMX is great',
-         body: 'Best city ever'}
-      ],
-    currentPost: null
-  }
-  this.addPost = this.addPost.bind(this);
-  this.getPost = this.getPost.bind(this);
-  this.handlePost=this.handlePost.bind(this);
-}
-
-  componentDidMount(){
-    this.getPost();
-  }
-
-  addPost(comment){
-    $.ajax({
-      method:'POST',
-      url:'/paisa',
-      contentType: 'application/json',
-      data:JSON.stringify({
-        comment:comment
-      })
-    }).done(()=>{
-      this.getPost()
-    })
-  }
-
-  getPost(){
-    $.ajax({
-      url:'/paisa',
-      method:"GET",
-      success: (results) =>{
-        this.setState({post:results})
-      },
-      error:(xhr,err) => {
-        console.log("err", err);
-      }
-    })
-  }
-  
-  handlePost(results){
-  this.setState({
-    currentPost:results
-    })
-  }
-
- render() {
-    return (
-      <div>
-        <BrowserRouter>
-          <MuiThemeProvider>
-            <HeaderBar />
-            <Forum />
-            <Post posts={this.state.posts} currentPost={this.state.currentPost} handlePost={this.handlePost} />
-          </MuiThemeProvider>
-        </BrowserRouter>
-      </div>
-    )
-  };
-};
+const App = () => ( 
+    <BrowserRouter>
+      <MuiThemeProvider>
+        <HeaderBar />
+        <main>
+          <Switch>
+            <Route exact path="/" component={Forum} />
+            <Route path="/post/:id" component={Post} />
+          </Switch>
+        </main>
+      </MuiThemeProvider>
+    </BrowserRouter>
+)
 
 ReactDOM.render(<App />, document.getElementById('app'));

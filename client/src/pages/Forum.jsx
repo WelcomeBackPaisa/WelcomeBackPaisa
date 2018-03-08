@@ -12,23 +12,52 @@ import Posts from "../components/forum/Posts.jsx"
 import AddPost from "../components/forum/AddPost.jsx"
 
 export default class Forum extends React.Component {
-  constructor(props) {
+  constructor(props){
     super(props);
-    this.state = {
-      posts: [
-        {id: 54,
-         title: 'help I need somebody',
-         body: 'really need somebody'},
-        {id: 55,
-         title: 'CDMX is great',
-         body: 'Best city ever'}
-      ]
-    };
+    this.state={
+      posts: []
+  }
+  this.addPost = this.addPost.bind(this);
+  this.getPost = this.getPost.bind(this);
+}
+
+  componentDidMount(){
+    this.getPost();
+  }
+
+  getPost(){
+    $.ajax({
+      url:'/forum',
+      method:"GET",
+      success: (results) => {
+        this.setState({
+          posts: results
+        })
+      },
+      error:(xhr,err) => {
+        console.log("err", err);
+      }
+    })
+  }
+
+  addPost(comment){
+    $.ajax({
+      method:'POST',
+      url:'/forum',
+      contentType: 'application/json',
+      data:JSON.stringify({
+        comment:comment
+      })
+    }).done(()=>{
+      this.getPost()
+    })
   }
 
   render() {
     return (
       <div>
+        {console.log(this.state.posts)}
+        <AddPost />
         <Posts posts={this.state.posts} />
       </div>
     );
