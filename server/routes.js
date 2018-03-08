@@ -1,7 +1,6 @@
 const db = require('../database/index.js');
 const url = require('url');
 
-
 //Query db for threads (topic_subject)
 exports.getThread = (req, res) => {
   db.getTopic()

@@ -1,8 +1,7 @@
-const mysql = require('mysql2');
+const mysql = require('mysql');
 const mysqlConfig = require('./config.js');
 
 const connection = mysql.createConnection(mysqlConfig);
-
 
   //user
   /*var newUserName = function(cb){

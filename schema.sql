@@ -6,7 +6,6 @@ CREATE DATABASE paisa;
 
 USE paisa;
 
-
 CREATE TABLE user(
   ID int NOT NULL AUTO_INCREMENT,
   userName varchar(55),
