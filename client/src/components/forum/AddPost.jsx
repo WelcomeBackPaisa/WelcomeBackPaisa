@@ -1,3 +1,8 @@
+/*AddPost will be a stateless presentational component
+  AddPost will be clickable and should redirect to Create New Post page
+  But for right now, it should only be a button icon
+*/
+
 import React from 'react';
 
 class AddThread extends React.Component{

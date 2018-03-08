@@ -1,3 +1,11 @@
+/*App.jsx is the supreme container for all the individual pages
+  App will render:
+    HeaderBar & Menu, which will be shared across all pages
+  Routes rendered inside App will be:
+    Forum ("/")
+    Post ("/post/:id")
+    About Me ("/about")
+*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
@@ -5,16 +13,18 @@ import $ from 'jquery';
 import {BrowserRouter, Route} from 'react-router-dom';
 import {MuiThemeProvider} from 'material-ui/styles';
 
-import AddThread from './components/home-forum/AddThread.jsx';
-import ThreadList from './components/home-forum/ThreadList.jsx';
-import Comment from './components/individual-threads/Comment.jsx';
-import AddReplyThread from './components/individual-threads/AddReplyThread.jsx';
+//SubComponents that will be rendered
+import Forum from './pages/Forum.jsx';
+import Post from './pages/Post.jsx';
+import AboutMe from './pages/AboutMe.jsx';
 
+//All GET/POST logic will be moved to the corresponding page
+//TODO Add Router Route
 class App extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      threads: [
+      posts: [
         { id: 54,
           title: 'help I need somebody',
           body: 'really need somebody'},
@@ -22,18 +32,18 @@ class App extends React.Component{
           title: 'CDMX is great',
          body: 'Best city ever'}
       ],
-    currentThread: null
+    currentPost: null
   }
-  this.addThread = this.addThread.bind(this);
-  this.getThread = this.getThread.bind(this);
-  this.handleThread=this.handleThread.bind(this);
+  this.addPost = this.addPost.bind(this);
+  this.getPost = this.getPost.bind(this);
+  this.handlePost=this.handlePost.bind(this);
 }
 
   componentDidMount(){
-    this.getThread();
+    this.getPost();
   }
 
-  addThread(comment){
+  addPost(comment){
     $.ajax({
       method:'POST',
       url:'/paisa',
@@ -42,16 +52,16 @@ class App extends React.Component{
         comment:comment
       })
     }).done(()=>{
-      this.getThread()
+      this.getPost()
     })
   }
 
-  getThread(){
+  getPost(){
     $.ajax({
       url:'/paisa',
       method:"GET",
       success: (results) =>{
-        this.setState({thread:results})
+        this.setState({post:results})
       },
       error:(xhr,err) => {
         console.log("err", err);
@@ -59,9 +69,9 @@ class App extends React.Component{
     })
   }
 
-  handleThread(results){
+  handlePost(results){
   this.setState({
-    currentThread:results
+    currentPost:results
     })
   }
 
@@ -70,8 +80,8 @@ class App extends React.Component{
       <div>
         <BrowserRouter>
           <MuiThemeProvider>
-            <AddThread addThread={this.addThread} />
-            <ThreadList threads={this.state.threads} currentThread={this.state.currentThread} handleThread={this.handleThread} />
+            <Forum />
+            <Post posts={this.state.posts} currentPost={this.state.currentPost} handlePost={this.handlePost} />
           </MuiThemeProvider>
         </BrowserRouter>
       </div>

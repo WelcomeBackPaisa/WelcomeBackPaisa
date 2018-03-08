@@ -1,3 +1,7 @@
+/*HeaderBar will only contain banner image
+  it is a stateless presentational component
+*/
+
 import React from 'react';
 import {Link} from 'react-router-dom';
 
@@ -5,7 +9,7 @@ import AppBar from 'material-ui/AppBar';
 import Button from 'material-ui/Button';
 import Toolbar from 'material-ui/Toolbar';
 
-
+//Re-write HeaderBar, it will no longer contain navigation elements
   const HeaderBar = (props) => (
     <div>
       <AppBar id='appBar'>

@@ -1,5 +1,6 @@
+//Will be stateless component containing about us text
 import React from 'react';
-import HeaderBar from "../components/home-forum/HeaderBar.jsx";
+
 
 export default class AboutUs extends React.Component {
   constructor(props) {
@@ -11,7 +12,6 @@ export default class AboutUs extends React.Component {
   render() {
     return (
       <div>
-        <HeaderBar />
         <div>
           <div className="container-fluid2">
             <p>
