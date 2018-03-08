@@ -23,7 +23,9 @@ export default class AboutUs extends React.Component {
             So help me out by understanding something, you have already won in this life, because you are the only one who can be you.\
             And that's the way it's supposed to be."
           </p>
-         </div>
+        </div>
+       </div>
+      </div>
     )
   }
 }

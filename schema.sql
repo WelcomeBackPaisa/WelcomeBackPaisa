@@ -1,8 +1,6 @@
 DROP DATABASE IF EXISTS paisa;
 
-
 CREATE DATABASE paisa;
-
 
 USE paisa;
 
@@ -22,8 +20,8 @@ INSERT INTO user(userName) VALUES('cleverUser2');
 
 
 CREATE TABLE topics (
-  topic_id INT NOT NULL AUTO_INCREMENT,
-  topic_subject varchar(255) NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
+  topic_subject varchar(255),
   topic_by INT,
   FOREIGN KEY (topic_id)
 );
@@ -38,7 +36,7 @@ INSERT INTO topics(topic_subject) VALUES('');
 
 
 CREATE TABLE reply(
-  replyID INT NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT,
   reply_text text,
   PRIMARY KEY(replyID),
   topic_id INT AUTO_INCREMENT,
@@ -56,7 +54,7 @@ INSERT INTO reply(reply_text) VALUES('');
 
 
 CREATE TABLE rating(
-  ratingID int NOT NULL AUTO_INCREMENT,
+  id int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY(ratingID),
   replyID int,
   FOREIGN KEY(replyID) REFERENCES reply(replyID),
