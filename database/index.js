@@ -18,7 +18,7 @@ const connection = mysql.createConnection(mysqlConfig);
 
 //post new post(thread)
   const postTopic = function() {
-    return new Promise((resolve, reject) = {
+    return new Promise((resolve, reject) => {
   connection.query('INSERT INTO posts(post_id, post_subject) VALUES(?, ?)',
     [post_id, post_subject], (err, data) => {
     if(err){
@@ -60,14 +60,14 @@ const connection = mysql.createConnection(mysqlConfig);
       if(err){
          return reject(err);
        }
-       return resolve(data):
+       return resolve(data);
     })
   })
 }
 
 module.exports = {
   postTopic,
-  getTopic;
-  postReply;
-  getReply;
+  getTopic,
+  postReply,
+  getReply
 }
