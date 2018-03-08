@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import AddThread from './components/AddThread.jsx';
-import ThreadList from './components/ThreadList.jsx';
-import Comment from './components/Comment.jsx';
-import AddReplyThread from './components/AddReplyThread.jsx';
+import AddThread from './components/home-forum/AddThread.jsx';
+import ThreadList from './components/home-forum/ThreadList.jsx';
+import Comment from './components/individual-threads/Comment.jsx';
+import AddReplyThread from './components/individual-threads/AddReplyThread.jsx';
 import {BrowserRouter, Route} from 'react-router-dom';
 import {MuiThemeProvider} from 'material-ui/styles';
-
 
 class App extends React.Component{
   constructor(props){
