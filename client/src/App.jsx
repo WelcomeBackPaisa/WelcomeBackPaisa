@@ -68,7 +68,7 @@ class App extends React.Component{
       }
     })
   }
-
+  
   handlePost(results){
   this.setState({
     currentPost:results
