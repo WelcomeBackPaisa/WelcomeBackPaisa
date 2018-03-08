@@ -1,22 +1,28 @@
+/*Comment will be a stateless presentational component
+  It will show the original Post text, username
+*/
+
 import React from 'react';
-import AddReplyThread from './AddReplyThread.jsx';
+import AddReply from './AddReply.jsx';
 import ReplyList from './ReplyList.jsx';
 
+//Logic for GET/POST will be moved up to Post.jsx
 
 class Comment extends React.Component{
   constructor(props){
     super(props);
-  this.state={
-    replyThread:[]
+    this.state = {
+      reply:[]
+    }
   }
-  }
+
   getReply(){
     $.ajax({
       url:'/reply',
       method:'GET',
       success:(results)=>{
         this.setState({
-        replyThread:results
+        reply:results
         })
       },
       error:(xhr,err)=>{
@@ -24,33 +30,28 @@ class Comment extends React.Component{
       }
     })
   }
+
   addReply(reply){
     $.ajax({
-
       method:'POST',
       url:'/reply',
       contentType: 'application/json',
       data:JSON.stringify({
-        replyThread:replyThread
+        reply:reply
       })
     }).done(()=>{
       this.getReply()
     })
   }
+
   render(){
-return(
- <div>
-
-
-
-<AddReplyThread />
-<ReplyList replyThread={this.state.replyThread}  />
-
-
-
-
-</div>
-)}
+    return(
+      <div>
+        <AddReply />
+        <ReplyList reply={this.state.reply}  />
+      </div>
+    )
+  }
 }
 
 export default Comment;
