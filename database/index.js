@@ -69,5 +69,9 @@ module.exports = {
   postTopic,
   getTopic,
   postReply,
+<<<<<<< 1ec247e79fe27431ab25261d1284e5b51c4e481c
   getReply,
+=======
+  getReply
+>>>>>>> fix typos
 }
