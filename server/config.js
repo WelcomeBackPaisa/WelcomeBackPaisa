@@ -13,4 +13,9 @@ app.get("/forum", route.getThread)
 
 app.get("/post/:id", route.getResponse)
 
+//POST request routes
+app.post("/forum", route.postThread)
+
+app.post("/post/:id", route.post)
+
 module.exports = app;
