@@ -4,7 +4,7 @@
 import React from 'react';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default class DrawerUndockedExample extends React.Component {
 
@@ -33,7 +33,7 @@ export default class DrawerUndockedExample extends React.Component {
   render() {
     return (
       <div>
-        <FlatButton
+        <RaisedButton
           label="Menu"
           onClick={this.handleToggle}
         />
