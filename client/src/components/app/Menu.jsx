@@ -5,6 +5,7 @@ import React from 'react';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
+import {Link} from "react-router-dom";
 
 export default class DrawerUndockedExample extends React.Component {
 
@@ -36,6 +37,7 @@ export default class DrawerUndockedExample extends React.Component {
         <RaisedButton
           label="Menu"
           onClick={this.handleToggle}
+          secondary={true}
         />
         <Drawer
           docked={false}
@@ -43,8 +45,8 @@ export default class DrawerUndockedExample extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem onClick={this.handleClose}>Forum</MenuItem>
-          <MenuItem onClick={this.handleClose}>About Us</MenuItem>
+        <Link to="/forum"><MenuItem onClick={this.handleClose}>Forum</MenuItem></Link>
+        <Link to="/about"><MenuItem onClick={this.handleClose}>About Us</MenuItem></Link>
         </Drawer>
       </div>
     );
