@@ -37,55 +37,20 @@ class App extends React.Component{
       ],
     currentPost: null
   }
-  this.addPost = this.addPost.bind(this);
-  this.getPost = this.getPost.bind(this);
-  this.handlePost=this.handlePost.bind(this);
 }
-
-  componentDidMount(){
-    this.getPost();
-  }
-
-  addPost(comment){
-    $.ajax({
-      method:'POST',
-      url:'/paisa',
-      contentType: 'application/json',
-      data:JSON.stringify({
-        comment:comment
-      })
-    }).done(()=>{
-      this.getPost()
-    })
-  }
-
-  getPost(){
-    $.ajax({
-      url:'/paisa',
-      method:"GET",
-      success: (results) =>{
-        this.setState({post:results})
-      },
-      error:(xhr,err) => {
-        console.log("err", err);
-      }
-    })
-  }
-  
-  handlePost(results){
-  this.setState({
-    currentPost:results
-    })
-  }
 
  render() {
     return (
       <div>
         <BrowserRouter>
           <MuiThemeProvider>
-            <HeaderBar />
-            <Forum />
-            <Post posts={this.state.posts} currentPost={this.state.currentPost} handlePost={this.handlePost} />
+          <main>
+            <Switch>
+              <Route exact path="/" component={Forum} />
+              <Route path="/post/:id" component={Post} />
+              <Route path="/about" component={AboutMe} />
+            </Switch>
+          </main>
           </MuiThemeProvider>
         </BrowserRouter>
       </div>

@@ -14,8 +14,47 @@ export default class Post extends React.Component {
     super(props);
     this.state = {
     }
+
+  this.addPost = this.addPost.bind(this);
+  this.getPost = this.getPost.bind(this);
+  this.handlePost=this.handlePost.bind(this);
+}
+
+  componentDidMount(){
+    this.getPost();
   }
 
+  addPost(){
+    $.ajax({
+      method:'POST',
+      url:'/',
+      contentType: 'application/json',
+      data:JSON.stringify({
+        comment:comment
+      })
+    }).done(()=>{
+      this.getPost()
+    })
+  }
+
+  getPost(){
+    $.ajax({
+      url:'/paisa',
+      method:"GET",
+      success: (results) =>{
+        this.setState({post:results})
+      },
+      error:(xhr,err) => {
+        console.log("err", err);
+      }
+    })
+  }
+
+  handlePost(results){
+  this.setState({
+    currentPost:results
+    })
+  }
   render() {
     return (
       <div>
