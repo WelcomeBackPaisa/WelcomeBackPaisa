@@ -36,7 +36,8 @@ class App extends React.Component{
          body: 'Best city ever'}
       ],
     currentPost: null
-
+  }
+}
 
  render() {
     return (
@@ -45,7 +46,7 @@ class App extends React.Component{
           <MuiThemeProvider>
           <main>
             <Switch>
-              <Route path="/" component={Forum} />
+              <Route exact path="/" component={Forum} />
               <Route path="/post/:id" component={Post} />
               <Route path="/about" component={AboutMe} />
             </Switch>
