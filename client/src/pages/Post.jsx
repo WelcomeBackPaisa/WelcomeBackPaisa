@@ -9,8 +9,6 @@
 
 import React from 'react';
 
-import HeaderBar from "../components/app/HeaderBar.jsx";
-
 export default class Post extends React.Component {
   constructor(props) {
     super(props);
@@ -60,7 +58,7 @@ export default class Post extends React.Component {
   render() {
     return (
       <div>
-        <HeaderBar />
+
       </div>
       )
     }

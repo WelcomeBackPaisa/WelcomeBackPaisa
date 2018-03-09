@@ -16,10 +16,11 @@ const connection = mysql.createConnection(mysqlConfig);
 }*/
 
 
-//post new topic(trhead)
+//post new post(thread)
   const postTopic = function() {
     return new Promise((resolve, reject) => {
-  connection.query('INSERT INTO topics(topic_subject) VALUES(?)',[topic_subject], (err, data) => {
+  connection.query('INSERT INTO posts(post_id, post_subject) VALUES(?, ?)',
+    [post_id, post_subject], (err, data) => {
     if(err){
        return reject(err);
      }
@@ -28,10 +29,10 @@ const connection = mysql.createConnection(mysqlConfig);
   })
 };
 
-//gets topic already created
+//gets post already created
   const getTopic = function() {
     return new Promise((resolve, reject) => {
-    connection.query('SELECT topic_subject FROM topics', (err, data) => {
+    connection.query('SELECT * FROM posts', (err, data) => {
       if(err){
         return reject(err);
        }
@@ -42,7 +43,8 @@ const connection = mysql.createConnection(mysqlConfig);
 //post reply to threads in home page
   const postReply = function() {
     return new Promise((resolve, reject) => {
-  connection.query('INSERT INTO reply(reply_text) VALUES(?)',[reply_text], (err, data) => {
+  connection.query('INSERT INTO reply(reply_id, reply_text) VALUES(?, ?)',
+  [reply_id, reply_text], (err, data) => {
     if(err){
       return reject(err);
      }
@@ -54,7 +56,7 @@ const connection = mysql.createConnection(mysqlConfig);
 //gets replies from client to be viewed by client
   const getReply = function() {
     return new Promise((resolve, reject) => {
-    connection.query('SELECT reply_text FROM reply', (err, data) => {
+    connection.query('SELECT * FROM reply', (err, data) => {
       if(err){
          return reject(err);
        }
