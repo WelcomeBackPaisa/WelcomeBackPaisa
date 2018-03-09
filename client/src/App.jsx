@@ -25,8 +25,7 @@ import AboutMe from './pages/AboutMe.jsx';
 //TODO Add Router Route
 const App = () => (
        <BrowserRouter>
-          <MuiThemeProvider>
-            <HeaderBar />
+        <MuiThemeProvider>
           <main>
             <Switch>
               <Route exact path="/" component={Forum} />
@@ -34,8 +33,8 @@ const App = () => (
               <Route path="/about" component={AboutMe} />
             </Switch>
           </main>
-          </MuiThemeProvider>
-        </BrowserRouter>
+        </MuiThemeProvider>
+      </BrowserRouter>
     )
 
 ReactDOM.render(<App />, document.getElementById('app'));

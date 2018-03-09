@@ -8,6 +8,7 @@ import $ from "jquery";
 import React from "react";
 import {Link} from "react-router-dom";
 
+import DrawerUndockedExample from "../components/app/Menu.jsx";
 import Posts from "../components/forum/Posts.jsx"
 import AddPost from "../components/forum/AddPost.jsx"
 
@@ -17,12 +18,16 @@ export default class Forum extends React.Component {
     this.state={
       posts: []
   }
-  this.addPost = this.addPost.bind(this);
   this.getPost = this.getPost.bind(this);
+  this.addPost = this.addPost.bind(this);
 }
 
   componentDidMount(){
     this.getPost();
+  }
+
+  componentDidMount(){
+    this.addPost();
   }
 
   getPost(){
@@ -56,6 +61,7 @@ export default class Forum extends React.Component {
   render() {
     return (
       <div>
+        <DrawerUndockedExample />
         <AddPost />
         <Posts posts={this.state.posts} />
       </div>
