@@ -26,10 +26,6 @@ export default class Forum extends React.Component {
     this.getPost();
   }
 
-  componentDidMount(){
-    this.addPost();
-  }
-
   getPost(){
     $.ajax({
       url:'/forum',
