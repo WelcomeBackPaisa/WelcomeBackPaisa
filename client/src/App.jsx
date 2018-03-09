@@ -23,13 +23,39 @@ import AboutMe from './pages/AboutMe.jsx';
 
 //All GET/POST logic will be moved to the corresponding page
 //TODO Add Router Route
-const App = () => (
-    <BrowserRouter>
-      <MuiThemeProvider>
-          <HeaderBar />
-          <Route exact path="/" component={Forum} />
-      </MuiThemeProvider>
-    </BrowserRouter>
-)
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={
+      posts: [
+        { id: 54,
+          title: 'help I need somebody',
+          body: 'really need somebody'},
+        { id: 55,
+          title: 'CDMX is great',
+         body: 'Best city ever'}
+      ],
+    currentPost: null
+  }
+}
+
+ render() {
+    return (
+      <div>
+        <BrowserRouter>
+          <MuiThemeProvider>
+          <main>
+            <Switch>
+              <Route exact path="/" component={Forum} />
+              <Route path="/post/:id" component={Post} />
+              <Route path="/about" component={AboutMe} />
+            </Switch>
+          </main>
+          </MuiThemeProvider>
+        </BrowserRouter>
+      </div>
+    )
+  };
+};
 
 ReactDOM.render(<App />, document.getElementById('app'));
