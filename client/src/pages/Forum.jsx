@@ -56,7 +56,6 @@ export default class Forum extends React.Component {
   render() {
     return (
       <div>
-        {console.log(this.state.posts)}
         <AddPost />
         <Posts posts={this.state.posts} />
       </div>

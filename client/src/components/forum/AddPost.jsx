@@ -11,11 +11,10 @@ class AddPost extends React.Component{
    this.state = {
     comment:''
   }
-  this.add = this.add.bind(this);
   this.updateComment = this.updateComment.bind(this);
   this.updateUserName = this.updateUserName.bind(this);
-
  }
+
  updateComment(e){
    this.setState({
      comment:e.target.value
@@ -27,20 +26,14 @@ class AddPost extends React.Component{
      userName:e.target.value
    })
  }
- add(){
-   this.props.addThread(this.state.comment)
-   this.setState({
-     comment:''
-   })
- }
 
  render() {
     return (
       <div>
-          <div className="startT">
-          <h2>START A THREAD</h2>
-          </div>
+        <div className="startT">
+        <h2>START A THREAD</h2>
         </div>
+      </div>
     );
   }
 }
