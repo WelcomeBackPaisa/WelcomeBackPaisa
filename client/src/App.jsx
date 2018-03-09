@@ -37,7 +37,5 @@ const App = () => (
         </MuiThemeProvider>
       </BrowserRouter>
     )
-  };
-};
 
 ReactDOM.render(<App />, document.getElementById('app'));
