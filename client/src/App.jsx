@@ -71,7 +71,7 @@ class App extends React.Component{
       }
     })
   }
-  
+
   handlePost(results){
   this.setState({
     currentPost:results
@@ -83,9 +83,13 @@ class App extends React.Component{
       <div>
         <BrowserRouter>
           <MuiThemeProvider>
-            <HeaderBar />
-            <Forum />
-            <Post posts={this.state.posts} currentPost={this.state.currentPost} handlePost={this.handlePost} />
+          <main>
+            <Switch>
+              <Route path="/" component={Forum} />
+                <Route path="/post/:id" component={Post} />
+                  <Route path="/about" component={AboutMe} />
+            </Switch>
+          </main>
           </MuiThemeProvider>
         </BrowserRouter>
       </div>
