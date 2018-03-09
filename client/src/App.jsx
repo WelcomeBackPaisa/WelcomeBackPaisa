@@ -29,7 +29,7 @@ const App = () => (
         <MuiThemeProvider>
           <main>
             <Switch>
-              <Route path="/" component={Forum} />
+              <Route exact path="/" component={Forum} />
                 <Route path="/post/:id" component={Post} />
                   <Route path="/about" component={AboutMe} />
             </Switch>
