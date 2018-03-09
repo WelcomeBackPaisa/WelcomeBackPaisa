@@ -6,22 +6,12 @@
 
 import React from 'react';
 
-class SinglePost extends React.Component{
-  constructor(props){
-    super(props);
-    }
-
-  render(){
-    return(
+const SinglePost = (props) => (
       <div>
         <div>
-          <div>{`${this.props.post.title}`}</div><br />
-            <div>{`${this.props.post.body}`}</div><br />
-          <button>Reply</button>
+          <div>{`${props.post.post_subject}`}</div><br />
         </div>
       </div>
-    )
-  }
-}
+  )
 
 export default SinglePost;

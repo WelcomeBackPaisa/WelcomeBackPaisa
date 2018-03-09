@@ -12,7 +12,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
 import '../dist/scss/main.scss';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {MuiThemeProvider} from 'material-ui/styles';
 
 //SubComponents that will be rendered
@@ -23,27 +23,10 @@ import AboutMe from './pages/AboutMe.jsx';
 
 //All GET/POST logic will be moved to the corresponding page
 //TODO Add Router Route
-class App extends React.Component{
-  constructor(props){
-    super(props);
-    this.state={
-      posts: [
-        { id: 54,
-          title: 'help I need somebody',
-          body: 'really need somebody'},
-        { id: 55,
-          title: 'CDMX is great',
-         body: 'Best city ever'}
-      ],
-    currentPost: null
-  }
-}
-
- render() {
-    return (
-      <div>
-        <BrowserRouter>
+const App = () => (
+       <BrowserRouter>
           <MuiThemeProvider>
+            <HeaderBar />
           <main>
             <Switch>
               <Route exact path="/" component={Forum} />
@@ -53,9 +36,6 @@ class App extends React.Component{
           </main>
           </MuiThemeProvider>
         </BrowserRouter>
-      </div>
     )
-  };
-};
 
 ReactDOM.render(<App />, document.getElementById('app'));
