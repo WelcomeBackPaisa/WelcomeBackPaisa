@@ -8,7 +8,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 const SinglePost = (props) => (
       <div>
-        {console.log(props)}
         <Link to={`/post/${props.post.post_id}`}>
         <div>{`${props.post.post_subject}`}</div><br />
         </Link>
