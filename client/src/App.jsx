@@ -23,18 +23,21 @@ import AboutMe from './pages/AboutMe.jsx';
 
 //All GET/POST logic will be moved to the corresponding page
 //TODO Add Router Route
+
 const App = () => (
        <BrowserRouter>
         <MuiThemeProvider>
           <main>
             <Switch>
               <Route exact path="/" component={Forum} />
-              <Route path="/post/:id" component={Post} />
-              <Route path="/about" component={AboutMe} />
+                <Route path="/post/:id" component={Post} />
+                  <Route path="/about" component={AboutMe} />
             </Switch>
           </main>
         </MuiThemeProvider>
       </BrowserRouter>
     )
+  };
+};
 
 ReactDOM.render(<App />, document.getElementById('app'));

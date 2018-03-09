@@ -9,8 +9,8 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 import DrawerUndockedExample from "../components/app/Menu.jsx";
-import Posts from "../components/forum/Posts.jsx"
-import AddPost from "../components/forum/AddPost.jsx"
+import Posts from "../components/forum/Posts.jsx";
+import AddPost from "../components/forum/AddPost.jsx";
 
 export default class Forum extends React.Component {
   constructor(props){
@@ -34,9 +34,9 @@ export default class Forum extends React.Component {
     $.ajax({
       url:'/forum',
       method:"GET",
-      success: (results) => {
+      success: (data) => {
         this.setState({
-          posts: results
+          posts: data
         })
       },
       error:(xhr,err) => {
