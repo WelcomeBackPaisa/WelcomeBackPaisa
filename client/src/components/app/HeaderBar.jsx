@@ -6,6 +6,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 //Re-write HeaderBar, it will no longer contain navigation elements
+//Temporary header, for dev purposes
   const HeaderBar = (props) => (
     <div className="wrapper full-height">
       <header className="header cf">
