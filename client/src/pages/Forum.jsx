@@ -8,9 +8,10 @@ import $ from "jquery";
 import React from "react";
 import {Link} from "react-router-dom";
 
-import DrawerUndockedExample from "../components/app/Menu.jsx";
 import Posts from "../components/forum/Posts.jsx";
 import AddPost from "../components/forum/AddPost.jsx";
+import TextBoxForum from '../components/forum/TextBox.jsx';
+import DrawerUndockedExample from "../components/app/Menu.jsx";
 
 export default class Forum extends React.Component {
   constructor(props){
@@ -58,8 +59,13 @@ export default class Forum extends React.Component {
     return (
       <div>
         <DrawerUndockedExample />
-        <AddPost />
-        <Posts posts={this.state.posts} />
+        <div>
+          <Posts posts={this.state.posts} />
+        </div>
+          <center><AddPost /></center>
+          <div>
+            <TextBoxForum />
+          </div>
       </div>
     );
   }
