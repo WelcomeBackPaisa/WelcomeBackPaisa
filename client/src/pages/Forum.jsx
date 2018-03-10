@@ -58,8 +58,18 @@ export default class Forum extends React.Component {
     return (
       <div>
         <DrawerUndockedExample />
-        <AddPost />
-        <Posts posts={this.state.posts} />
+          <section className="forumMain-section">
+            <div className="row">
+              <div className="col-md-4">
+                </div>
+                  <div id='Topics' className="col-md-4">
+                    <Posts posts={this.state.posts} />
+                  </div>
+                <div className="col-md-4">
+              </div>
+            </div>
+          </section>
+          <center><AddPost /></center>
       </div>
     );
   }
